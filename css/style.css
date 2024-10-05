@@ -9,22 +9,29 @@ body {
     width: 98vw;
 }
 
-.wrapper {
-    height: 98vh;
-    width: 98vw;
-}
-
 .row {
     background-color: #efefef;
-    margin: 5px 10px;
+    margin: 10px;
     width: 100%;
-    float: left;
+}
+
+.float .row::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.block {
+    padding: 30px;
+}
+
+.block--half {
+    padding: 11.5px;
 }
 
 .block,
 .block-cont {
     width: 18%;
-    height: 80px;
     margin: 10px;
     background-color: #cccccc;
 }
@@ -38,34 +45,57 @@ body {
     background-color: transparent;
 }
 
-.block--left {
+.float .block--left {
     float: left;
 }
 
-.block--right,
-.block--test {
+.float .block--right,
+.float .block-cont--right {
     float: right;
 }
 
-.block-cont--right {
-    float: right;
-}
-
-.block--half {
+.float .block--half {
     width: 100%;
     height: 44%;
     margin: 0;
     float: left;
+}
+
+body .block--half:first-child {
     margin-bottom: 10px;
 }
 
-.row--spec .block--left {
+.float .row--spec .block--left {
     margin-left: 31.5%;
     margin-right: 0px;
 }
 
-.row--spec .block-cont--right {
+.float .row--spec .block-cont--right {
     margin-right: 31.5%;
     margin-left: 0px;
+}
+
+/* flex.html */
+
+.flex .row {
+    display: flex;
+}
+
+.flex .row--gap .block:first-child,
+.flex .row--mid .block:nth-child(2) {
+    margin-right: auto;
+} 
+
+.flex .row--reverse {
+    flex-direction: row-reverse;
+}
+
+.flex .row--spec {
+    justify-content: center;
+}
+
+.flex .block--half {
+    margin: 0;
+    width: 100%;
 }
 
